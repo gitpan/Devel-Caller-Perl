@@ -1,0 +1,6 @@
+#!/bin/sh
+# $Id: INSTALL,v 1.1 2003/03/28 18:29:51 cwest Exp $
+perl Build.PL
+./Build 
+./Build test
+./Build install
