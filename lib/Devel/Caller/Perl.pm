@@ -5,7 +5,7 @@ $^W = 1;
 sub called_args {
 	my ($level) = @_;
 	my @foo = caller( ( $level || 0 ) + 3 );
-	return wantarray ? @DB::args : \@DB::args;
+	wantarray ? @DB::args : \@DB::args;
 }
 
 package Devel::Caller::Perl;
@@ -14,7 +14,7 @@ use DB;
 use Exporter::Lite;
 use vars qw[@EXPORT_OK $VERSION];
 @EXPORT_OK = qw[called_args];
-$VERSION   = (qw$Revision: 1.2 $)[1];
+$VERSION   = (qw$Revision: 1.3 $)[1];
 
 sub called_args { &DB::called_args }
 
