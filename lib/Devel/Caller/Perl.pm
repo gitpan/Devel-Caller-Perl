@@ -2,7 +2,7 @@ package DB;
 use strict;
 $^W = 1;
 
-sub called_with {
+sub called_args {
 	my ($level) = @_;
 	my @foo = caller( ( $level || 0 ) + 3 );
 	return wantarray ? @DB::args : \@DB::args;
@@ -13,10 +13,10 @@ package Devel::Caller::Perl;
 use DB;
 use Exporter::Lite;
 use vars qw[@EXPORT_OK $VERSION];
-@EXPORT_OK = qw[called_with];
-$VERSION   = (qw$Revision: 1.1 $)[1];
+@EXPORT_OK = qw[called_args];
+$VERSION   = (qw$Revision: 1.2 $)[1];
 
-sub called_with { &DB::called_with }
+sub called_args { &DB::called_args }
 
 1;
 
@@ -30,11 +30,11 @@ Devel::Caller::Perl - Perl only implementation.
 
 =head1 SYNOPSIS
 
- use Devel::Caller::Perl qw[called_with];
+ use Devel::Caller::Perl qw[called_args];
  
  sub permute_args {
    my @args = @_;
-   my @caller_args = called_with( 0 );
+   my @caller_args = called_args( 0 );
    
    my %caller_args =
      map { $_ => $caller_args[$_] } 0 .. $#caller_args;
@@ -58,9 +58,9 @@ higher up in the call stack.
 
 =head2 FUNCTIONS
 
-=head3 called_with [LEVEL]
+=head3 called_args [LEVEL]
 
-C<called_with> returns the arguments to the subroutine at LEVEL in
+C<called_args> returns the arguments to the subroutine at LEVEL in
 the call stack.  If no level is specified, 0 (zero) is assumed, that
 being our caller.  If a list is expected, it will be returned.  When a
 scalar is expected, a list reference will be returned.
