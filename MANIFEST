@@ -1,7 +1,8 @@
 Build.PL
 INSTALL
+lib/Devel/Caller/Perl.pm
+Makefile.PL
 MANIFEST
 META.yml
 README
-lib/Devel/Caller/Perl.pm
 t/basic.t

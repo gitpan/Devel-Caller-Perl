@@ -1,4 +1,4 @@
-# $Id: Build.PL,v 1.2 2003/03/28 19:22:07 cwest Exp $
+# $Id: Build.PL,v 1.1 2003/09/11 16:49:04 cwest Exp $
 use strict;
 
 use Module::Build;
@@ -6,9 +6,6 @@ use Module::Build;
 Module::Build->new(
 	module_name => 'Devel::Caller::Perl',
 	license     => 'perl',
-	require     => {
-		'Exporter::Lite' => 0,
-	},
 	build_requires => {
 		'Test::More'                 => 0,
 		'Module::Build'              => 0,
